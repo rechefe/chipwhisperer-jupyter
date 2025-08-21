@@ -10,7 +10,7 @@ uint8_t get_pt(uint8_t *pt, uint8_t len)
 	aes_indep_enc_pretrigger(pt);
 
 	trigger_high();
-	aes_indep_enc(pt); /* encrypting the data block */
+	aes_indep_enc(pt);
 	trigger_low();
 
 	aes_indep_enc_posttrigger(pt);
@@ -21,7 +21,7 @@ uint8_t get_pt(uint8_t *pt, uint8_t len)
 
 uint8_t get_key(uint8_t *pt, uint8_t len)
 {
-	aes_indep_init();
+	// Sets the key - for acquiring traces
 	aes_indep_key(pt);
 
 	return 0x00;
